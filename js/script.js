@@ -10,7 +10,7 @@
 // Visualizzare a fianco ad ogni item ha una ":x:": cliccando su di essa, il todo viene rimosso dalla lista.
 // MILESTONE 3
 // Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante,
-//  il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
+// il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
 // Bonus:
 // 1- oltre al click sul pulsante per la aggiunta del task, intercettare anche il tasto ENTER per aggiungere il todo alla lista
 // 2- cliccando sul testo dell'item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
@@ -18,9 +18,9 @@
 
 const { createApp } = Vue
 
-createApp ({
+createApp({
     data() {
-        return{
+        return {
             tasks: [
                 {
                     text: 'Fare la spesa',
@@ -38,15 +38,32 @@ createApp ({
                     text: 'Disdire abbonamento Netflix',
                     done: false
                 }
-            ]
+            ],
+
+            // aggiungo variabile per memorizzare il testo della nuova task
+            newTaskText: ''
         };
-        
+
     },
 
     methods: {
+
+        //metodo per rimuovere il todo dalla lista
         removeTask(index) {
             this.tasks.splice(index, 1);
+        },
+
+        //metodo per aggiungere un nuovo todo alla lista
+        addTask() {
+
+            //verifico che il testo non sia vuoto
+            if (this.newTaskText.trim() !== '') {
+
+                //aggiungo la nuova task e reimposto il campo di input
+                this.tasks.push({ text: this.newTaskText, done: false });
+                this.newTaskText = '';
+            }
         }
-    }
+    },
 
 }).mount('#app');

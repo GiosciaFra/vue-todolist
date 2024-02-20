@@ -15,12 +15,12 @@
         <script src="https://kit.fontawesome.com/3de2aa07be.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class="bg-primary-subtle text-primary ">
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
 
-    <div id="app" class="container ">
-        <h1 class="text-center text-primary ">ToDo</h1>
+    <div id="app" class="container pt-5  w-50 ">
+        <h1 class="text-center fw-bolder pb-3">ToDo</h1>
 
         <ul class="list-group border border-2 border-primary  ">
             <li class="d-flex justify-content-between border border-primary pe-3 ps-3 pt-2   " v-for ="(task, index) in tasks">
@@ -34,6 +34,10 @@
             </li>
         </ul>
 
+        <div class="pt-5 d-flex justify-content-end gap-2  ">
+            <input type="text" v-model="newTaskText" placeholder="Inserisci un nuovo ToDo" class="border border-2 rounded-2 border-primary ">
+            <button @click="addTask" class="text-bg-primary border border-0 rounded-2 ">Aggiungi</button>
+        </div>
     </div>
 
 
