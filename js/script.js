@@ -67,9 +67,9 @@ createApp({
             }
         },
 
-        // metodo per invertire il valore della proprietà 'done' (spread operator)
+        // metodo per invertire il valore della proprietà 'done' 
         toggleDone(index) {
-            this.tasks[index] = { ...this.tasks[index], done: !this.tasks[index].done };
+            this.tasks[index].done =!this.tasks[index].done;
 
         }
     }

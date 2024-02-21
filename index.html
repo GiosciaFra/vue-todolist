@@ -23,9 +23,9 @@
         <ul class="list-group border border-2 border-primary">
 
             <!-- aggiungo il metodo toggleDone -->
-            <li class="d-flex justify-content-between border border-primary pe-3 ps-3 pt-2" v-for ="(task, index) in tasks" :key="index" @click="toggleDone(index)">
+            <li class="d-flex justify-content-between border border-primary pe-3 ps-3 pt-2" v-for ="(task, index) in tasks" :key="index">
 
-                <p :class="task.done ? 'text-decoration-line-through' : '' ">
+                <p :class="task.done ? 'text-decoration-line-through' : '' "  @click="toggleDone(index)">
                     {{task.text}}
                 </p>
 
