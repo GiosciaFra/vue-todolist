@@ -50,7 +50,8 @@ createApp({
 
         // metodo per rimuovere il todo dalla lista (update spread operator)
         removeTask(index) {
-            this.tasks = [...this.tasks.slice(0, index), ...this.tasks.slice(index + 1)];
+            this.tasks.splice(index, 1);
+
         },
 
         // metodo per aggiungere un nuovo todo alla lista
@@ -59,8 +60,9 @@ createApp({
             //verifico che il testo non sia vuoto
             if (this.newTaskText.trim() !== '') {
 
-                //aggiungo la nuova task e reimposto il campo di input (update spread operator)
-                this.tasks = [...this.tasks, { text: this.newTaskText, done: false }];
+                //aggiungo la nuova task e reimposto il campo di input 
+                this.tasks.push({ text: this.newTaskText, done: false });
+
                 this.newTaskText = '';
             }
         },
